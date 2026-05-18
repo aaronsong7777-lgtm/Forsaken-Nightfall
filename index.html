@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Forsaken Nightfall</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="hud" aria-label="Game status">
+        <div class="logo">Forsaken Nightfall</div>
+        <div class="stats">
+          <span>Time <strong id="time">04:00</strong></span>
+          <span>HP <strong id="hp">100</strong></span>
+          <span>Stamina <strong id="stamina">100</strong></span>
+          <span>Ability <strong id="ability">Ready</strong></span>
+          <span>Generators <strong id="gens">0/5</strong></span>
+          <span>Team <strong id="team">4 alive</strong></span>
+          <span id="status">Home</span>
+        </div>
+      </section>
+
+      <section class="game-wrap">
+        <canvas id="game" width="960" height="600"></canvas>
+
+        <aside class="team-panel" aria-label="Team status">
+          <h2>Team</h2>
+          <div id="teamList" class="team-list"></div>
+        </aside>
+
+        <aside class="ability-panel" aria-label="Ability status">
+          <h2 id="abilityName">Ability</h2>
+          <p id="abilityDesc">Press Q to use your survivor ability.</p>
+          <div class="ability-meter">
+            <span id="abilityFill"></span>
+          </div>
+          <strong id="abilityCooldown">Ready</strong>
+        </aside>
+
+        <div id="overlay" class="overlay">
+          <div id="homeMenu" class="home-menu">
+            <div class="hero-copy">
+              <p class="eyebrow">Asymmetric Horror Round</p>
+              <h1>Forsaken Nightfall</h1>
+              <p>
+                Load into a ruined facility with three teammates. Repair generators, open the gates,
+                rescue downed survivors, and escape while the hunter adapts.
+              </p>
+            </div>
+
+            <div class="menu-grid">
+              <section class="menu-card">
+                <h2>Queue</h2>
+                <button id="startBtn" type="button">Start Match</button>
+                <div class="difficulty" aria-label="Difficulty">
+                  <button type="button" class="mode active" data-mode="normal">Normal</button>
+                  <button type="button" class="mode" data-mode="nightmare">Nightmare</button>
+                </div>
+              </section>
+
+              <section class="menu-card">
+                <h2>Your Ability</h2>
+                <div class="selected-ability">
+                  <b id="menuAbilityName">Dash</b>
+                  <span id="menuAbilityDesc">Press Q to refill stamina.</span>
+                </div>
+              </section>
+
+              <section class="menu-card wide">
+                <h2>Pick Survivor</h2>
+                <div id="survivorGrid" class="select-grid" aria-label="Pick survivor"></div>
+              </section>
+
+              <section class="menu-card wide">
+                <h2>Pick Killer</h2>
+                <div id="killerGrid" class="select-grid killers" aria-label="Pick killer"></div>
+              </section>
+
+              <section class="menu-card wide">
+                <h2>Objectives</h2>
+                <div class="objective-grid">
+                  <span>Repair 5 generators</span>
+                  <span>Open either exit gate</span>
+                  <span>Revive downed teammates</span>
+                  <span>Escape before midnight</span>
+                </div>
+              </section>
+            </div>
+
+            <div class="controls">
+              <span>WASD move</span>
+              <span>Shift sprint</span>
+              <span>E repair / revive / escape</span>
+              <span>Q survivor ability</span>
+              <span>R restart</span>
+            </div>
+          </div>
+
+          <div id="endMenu" class="end-menu hidden">
+            <h1 id="endTitle">Round Over</h1>
+            <p id="endText">The match ended.</p>
+            <button id="homeBtn" type="button">Back To Home</button>
+            <button id="againBtn" type="button">Play Again</button>
+          </div>
+        </div>
+      </section>
+
+      <p class="note">
+        Original browser horror chase game inspired by survivor-vs-hunter rounds.
+      </p>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
